@@ -7,8 +7,6 @@ import { LinearGradient } from 'expo-linear-gradient';
 import styles from '../styles';
 import actionCreators from '../redux/moviesActions';
 
-
-
 const Movie = ({ movie }: any) => {
 
     const dispatch = useDispatch();
@@ -38,7 +36,6 @@ const Movie = ({ movie }: any) => {
                             <Text style={styles.ratingValue}>{rating.Value}</Text>
                             </View>
                         )}
-                        
                     </View>
                     
                     <View style={styles.content}>

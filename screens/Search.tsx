@@ -40,7 +40,7 @@ const Home = () => {
     const formatMovieType = (movieType: string) => movieType.slice(0, 1).toUpperCase() + movieType.slice(1)
 
     return (
-        <LinearGradient style={{ flex: 1 }} colors={['#a89bfb', '#e2baff']}>
+        <LinearGradient style={{ flex: 1 }} colors={['#D3CCE3', '#E9E4F0']}>
         
             <SafeAreaView style={styles.page}>
                 <TextInput
@@ -55,19 +55,21 @@ const Home = () => {
                     data={movies}
                     renderItem={(item: any) => {
                         const movie: Movie = item.item;
-                        return <TouchableOpacity onPress={() => selectMovie(movie)} style={[styles.searchCard, { opacity: searching? 0.5 : 1 }]}>
-                                <Image source={{ uri: movie.Poster }} style={styles.searchImage} />
-                                <View style={styles.searchCardContent}>
-                                    <Text style={styles.searchTitle}>{movie.Title}</Text>
-                                    <View style={styles.row}>  
-                                        <Text style={styles.movieTypeText}>{formatMovieType(movie.Type)}</Text>
-                                        <Text>⭐️ {movie.imdbRating}</Text>
+                        return <LinearGradient style={[styles.shadowContainer, { margin: 8, borderRadius: 8 }]} colors={['#8EC5FC', '#E0C3FC']} >
+                                <TouchableOpacity onPress={() => selectMovie(movie)} style={[styles.searchCard, { opacity: searching? 0.5 : 1 }]}>
+                                    <Image source={{ uri: movie.Poster }} style={styles.searchImage} />
+                                    <View style={styles.searchCardContent}>
+                                        <Text style={styles.searchTitle}>{movie.Title}</Text>
+                                        <View style={styles.row}>  
+                                            <Text style={styles.movieTypeText}>{formatMovieType(movie.Type)}</Text>
+                                            <Text>⭐️ {movie.imdbRating}</Text>
+                                        </View>
+                                        <View style={styles.row}>  
+                                            <Text>{movie.Genre}</Text>
+                                        </View>
                                     </View>
-                                    <View style={styles.row}>  
-                                        <Text>{movie.Genre}</Text>
-                                    </View>
-                                </View>
-                            </TouchableOpacity>
+                                </TouchableOpacity>
+                            </LinearGradient>
                     }}
                     keyExtractor={item => item.imdbID}
                 />

@@ -12,21 +12,20 @@ export default StyleSheet.create({
         padding: 10,
     },
     searchCard: {
-        borderRadius: 8,
-        margin: 8,
         padding: 8,
         display: "flex",
         flexDirection: "row",
-        shadowColor: "#000",
-        shadowOffset: { width: 0, height: 10 },
-        shadowOpacity: 0.39,
-        shadowRadius: 8.30,
-        backgroundColor: "#42a7f5",
     },
     searchCardContent: {
         display: "flex",
         flexDirection: "column",
         flex: 1,
+    },
+    shadowContainer: {
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 10 },
+        shadowOpacity: 0.39,
+        shadowRadius: 8.30,
     },
     searchImage: {
         width: 50,
@@ -49,13 +48,14 @@ export default StyleSheet.create({
         marginTop: 100
     },
     movieTypeText: {
-        color: "white"
+        color: "rgb(50, 50, 50)"
     },
     row: {
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
+        marginVertical: 4
     },
     movieCard: {
         height: "auto",
