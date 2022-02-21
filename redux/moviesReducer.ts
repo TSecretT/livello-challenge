@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 
-const reducerMovies = (state: any = [], action: any) => {
+const reducerMovies = (state: any = null, action: any) => {
     switch (action.type){   
         case "set_movies":
             return state = action.movies;
