@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
     page: {
-        marginBottom: 100,
+        flex: 1,
     },
     input: {
         height: 40,
@@ -40,7 +40,7 @@ export default StyleSheet.create({
         fontWeight: "bold",
         fontSize: 18,
         textAlign: "left",
-        maxWidth: "90%",
+        maxWidth: "70%",
     },
     textNoMoviesFound: {
         width: "100%",
@@ -56,6 +56,53 @@ export default StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
-        flex: 1
+    },
+    movieCard: {
+        height: "auto",
+        borderRadius: 8,
+        margin: 8,
+        padding: 8,
+        display: "flex",
+        flexDirection: "row",
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 10 },
+        shadowOpacity: 0.39,
+        shadowRadius: 8.30,
+        backgroundColor: "pink",
+    },
+    movieImage: {
+        width: "30%",
+        height: 170,
+    },
+    content: {
+        padding: 16,
+        marginVertical: 16
+    },
+    header: {
+        fontWeight: "bold",
+        color: "black",
+        fontSize: 24,
+        marginBottom: 8
+    },
+    description: {
+        color: "rgb(20, 20, 20)",
+    },
+    btnBack: {
+        width: 60,
+        padding: 8,
+        margin: 8,
+    },
+    btnBackText: {
+        width: "100%",
+        textAlign: "center",
+        fontWeight: "bold",
+        fontSize: 40
+    },
+    ratingSource: {
+        fontWeight: "600",
+    },
+    ratingValue: {
+        fontWeight: "bold",
+        fontSize: 18
     }
 });

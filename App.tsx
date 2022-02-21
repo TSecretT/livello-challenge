@@ -1,8 +1,18 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Provider, useSelector, useDispatch } from 'react-redux';
+import { store } from './redux/store';
+import Movie from './screens/Movie';
 
 import Search from './screens/Search';
 
+const Navigation = () => {
+	const movie = useSelector((state: any) => state.selectedMovie);
+	
+	return movie? <Movie movie={movie} /> : <Search />  
+}
+
 export default function App() {
-	return <Search />
+
+	return <Provider store={store}>
+		<Navigation />
+	</Provider>
 }

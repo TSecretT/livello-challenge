@@ -1,16 +1,23 @@
-import { View, Text, TextInput, SafeAreaView, FlatList, Image } from 'react-native';
+import { View, Text, TextInput, SafeAreaView, FlatList, Image, TouchableOpacity } from 'react-native';
+import { useSelector, useDispatch } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import React from 'react';
 
 import api from '../api';
 import { Movie } from '../types';
 import styles from '../styles';
+import actionCreators from '../redux/moviesActions';
 
 let timer: any;
 
 const Home = () => {
     const [search, setSearch] = React.useState<string>();
-    const [movies, setMovies] = React.useState<Movie[]>();
     const [searching, setSearching] = React.useState<boolean>(false);
+    const movies = useSelector((state: any) => state.movies);
+    const dispatch = useDispatch();
+
+
+    const { selectMovie, selectMovies } = bindActionCreators(actionCreators, dispatch)
 
     const onSearch = async (name: string) => {
         setSearch(name);
@@ -23,8 +30,8 @@ const Home = () => {
             const result: Movie[] = await api.searchMovie(name);
             const ids: string[] = result.map((movie: Movie) => movie.imdbID)
             const movies: any = await api.parseMoviesDetails(ids);
-            setMovies(movies);
             setSearching(false);
+            selectMovies(movies);
         }, 1000)        
     }
 
@@ -44,7 +51,7 @@ const Home = () => {
                 data={movies}
                 renderItem={(item: any) => {
                     const movie: Movie = item.item;
-                    return <View style={[styles.searchCard, { opacity: searching? 0.5 : 1 }]}>
+                    return <TouchableOpacity onPress={() => selectMovie(movie)} style={[styles.searchCard, { opacity: searching? 0.5 : 1 }]}>
                             <Image source={{ uri: movie.Poster }} style={styles.searchImage} />
                             <View style={styles.searchCardContent}>
                                 <Text style={styles.searchTitle}>{movie.Title}</Text>
@@ -56,7 +63,7 @@ const Home = () => {
                                     <Text>{movie.Genre}</Text>
                                 </View>
                             </View>
-                        </View>
+                        </TouchableOpacity>
                 }}
                 keyExtractor={item => item.imdbID}
             />
