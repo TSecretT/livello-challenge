@@ -5,7 +5,7 @@ axios.defaults.baseURL = config.BASE_URL;
 
 const searchMovie = async (name: string) => {
     return await axios.get("/", { params: { s: name, apikey: config.API_KEY } })
-    .then((res: AxiosResponse) => res.data.Search)
+    .then((res: AxiosResponse) => res.data.Search || [])
     .catch((err: AxiosError) => { console.error(err); return [] })
 }
 

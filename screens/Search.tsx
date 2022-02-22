@@ -47,6 +47,8 @@ const Home = () => {
                     style={styles.input}
                     onChangeText={onSearch}
                     value={search}
+                    autoCorrect={false}
+                    autoCapitalize="none"
                     placeholder="Search movie by title..."
                 />
 
