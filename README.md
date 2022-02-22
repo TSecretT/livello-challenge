@@ -28,3 +28,4 @@ Then install dependencies with the following commands:
 - On "back" button press, the "selectedMovie" becomes "null" which returns user to Search page.
 - This workflow is not the best, but it is very simple for this simple application.
 - The work was focused more on the features rather than design.
+- The API key is stored in config file and not as an env variable for simplification.
