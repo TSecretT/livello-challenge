@@ -57,21 +57,19 @@ const Home = () => {
                     data={movies}
                     renderItem={(item: any) => {
                         const movie: Movie = item.item;
-                        return <LinearGradient style={[styles.shadowContainer, { margin: 8, borderRadius: 8 }]} colors={['#8EC5FC', '#E0C3FC']} >
-                                <TouchableOpacity onPress={() => selectMovie(movie)} style={[styles.searchCard, { opacity: searching? 0.5 : 1 }]}>
-                                    <Image source={{ uri: movie.Poster }} style={styles.searchImage} />
-                                    <View style={styles.searchCardContent}>
-                                        <Text style={styles.searchTitle}>{movie.Title}</Text>
-                                        <View style={styles.row}>  
-                                            <Text style={styles.movieTypeText}>{formatMovieType(movie.Type)}</Text>
-                                            <Text>⭐️ {movie.imdbRating}</Text>
-                                        </View>
-                                        <View style={styles.row}>  
-                                            <Text>{movie.Genre}</Text>
-                                        </View>
+                            return <TouchableOpacity onPress={() => selectMovie(movie)} style={[styles.searchCard, { opacity: searching? 0.5 : 1 }]}>
+                                <Image source={{ uri: movie.Poster }} style={styles.searchImage} />
+                                <View style={styles.searchCardContent}>
+                                    <Text style={styles.searchTitle}>{movie.Title}</Text>
+                                    <View style={styles.row}>  
+                                        <Text style={styles.movieTypeText}>{formatMovieType(movie.Type)}</Text>
+                                        <Text>⭐️ {movie.imdbRating}</Text>
                                     </View>
-                                </TouchableOpacity>
-                            </LinearGradient>
+                                    <View style={styles.row}>  
+                                        <Text>{movie.Genre}</Text>
+                                    </View>
+                                </View>
+                            </TouchableOpacity>
                     }}
                     keyExtractor={item => item.imdbID}
                 />

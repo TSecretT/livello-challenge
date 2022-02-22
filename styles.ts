@@ -13,19 +13,20 @@ export default StyleSheet.create({
     },
     searchCard: {
         padding: 8,
+        margin: 8,
+        borderRadius: 8,
         display: "flex",
         flexDirection: "row",
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 10 },
+        shadowOpacity: 0.5,
+        shadowRadius: 8.30,
+        backgroundColor: "white"
     },
     searchCardContent: {
         display: "flex",
         flexDirection: "column",
         flex: 1,
-    },
-    shadowContainer: {
-        shadowColor: "#000",
-        shadowOffset: { width: 0, height: 10 },
-        shadowOpacity: 0.39,
-        shadowRadius: 8.30,
     },
     searchImage: {
         width: 50,
