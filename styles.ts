@@ -105,5 +105,8 @@ export default StyleSheet.create({
     ratingValue: {
         fontWeight: "bold",
         fontSize: 18
+    },
+    directors: {
+        maxWidth: "70%"
     }
 });

@@ -25,7 +25,7 @@ const Movie = ({ movie }: any) => {
                         <Image source={{ uri: movie.Poster }} style={[styles.searchImage, styles.movieImage]} />                
                         <View>
                             <Text style={styles.searchTitle}>{movie.Title}</Text>
-                            <Text>by {movie.Director}</Text>
+                            <Text style={styles.directors}>by {movie.Director}</Text>
                         </View>
                     </View>
 
